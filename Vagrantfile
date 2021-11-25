@@ -5,7 +5,7 @@ VAGRANTFILE_API_VERSION = '2'.freeze
 
 # rubocop:disable BlockLength
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = 'ubuntu/xenial64'
+  config.vm.box = 'generic/ubuntu1804'
   config.ssh.forward_agent = true
   config.vm.synced_folder 'etc',
                           '/usr/local/etc',
@@ -33,8 +33,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize [
       'modifyvm', :id,
       '--natdnshostresolver1', 'on',
-      '--memory', '4096',
-      '--cpus', '2'
+      '--memory', '8192',
+      '--cpus', '4'
     ]
   end
 
